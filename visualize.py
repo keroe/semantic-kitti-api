@@ -16,6 +16,13 @@ if __name__ == '__main__':
       help='Dataset to visualize. No Default',
   )
   parser.add_argument(
+      '--label_dataset', 'l',
+      type=str,
+      required=False,
+      default=None,
+      help='Dataset which contains the labels. Default to path provided by --dataset'
+  )
+  parser.add_argument(
       '--config', '-c',
       type=str,
       required=False,
@@ -98,11 +105,14 @@ if __name__ == '__main__':
     help='Apply learning map to color map: visualize only classes that were trained on',
   )
   FLAGS, unparsed = parser.parse_known_args()
+  if not FLAGS.label_dataset:
+    FLAGS.label_dataset = FLAGS.dataset
 
   # print summary of what we will do
   print("*" * 80)
   print("INTERFACE:")
   print("Dataset", FLAGS.dataset)
+  print("Labels Dataset", FLAGS.label_dataset)
   print("Config", FLAGS.config)
   print("Sequence", FLAGS.sequence)
   print("Predictions", FLAGS.predictions)
