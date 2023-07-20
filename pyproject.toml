@@ -1,0 +1,14 @@
+[build-system]
+build-backend = 'setuptools.build_meta'
+requires = [
+    'setuptools',
+]
+
+[project]
+name = "semantic_kitti_api"
+version = "0.1.0"
+
+[tool.setuptools]
+packages = ["auxiliary"]
+
+
